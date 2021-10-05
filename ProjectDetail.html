@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Idstats</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
+    />
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
+    <!-- IonIcons -->
+    <link
+      rel="stylesheet"
+      href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/idstats.min.css" />
+    <style>
+      .r_aside {
+        background: #442460;
+      }
+      .r_asideheader {
+        height: 56px;
+        background: #fdfafd;
+      }
+      .r_ul1 > li {
+        background: #56396f;
+        border-bottom: 1px solid #442460;
+      }
+      .r_ul1 > li > p {
+        background: red;
+      }
+      .r_containermain {
+        height: 144px;
+        background: #f8eefa;
+      }
+      .r_main2 {
+        background: #fdfafd;
+      }
+      .r_mainp {
+        font: normal normal bold 32px/39px Calibri;
+        letter-spacing: 0px;
+        color: #43425d;
+        opacity: 1;
+      }
+      .r_colorli {
+        font: normal normal normal 16px/19px Calibri;
+        letter-spacing: 0px;
+        color: #c6bccf;
+        opacity: 1;
+      }
+      .r_fullimage {
+        background-image: url("img/Full\ image.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .sidebar .nav-link {
+        border-left: 6px solid #56396f;
+      }
+      .nav-icon:hover {
+        color: chartreuse !important;
+      }
+      .r_p1 {
+        font: normal normal normal 20px/24px Avenir;
+        color: #4d4f5c;
+      }
+      .r_p2 {
+        font: normal normal normal 14px/16px Avenir;
+        color: #4d4f5c;
+      }
+      ::placeholder {
+        font: normal normal normal 16px/25px Avenir;
+        color: #000000 !important;
+      }
+      .r_h {
+        font: normal normal normal 40px/49px Calibri;
+        letter-spacing: 0px;
+        color: #000000;
+      }
+      .r_imagp {
+        font: normal normal normal 20px/14px Calibri;
+        letter-spacing: 0.3px;
+        color: #4a274f;
+      }
+      .r_navbar {
+        border-bottom: 1px solid #cbcbcb;
+        background-color: #fff;
+      }
+      .r_navbar > li > a {
+        color: #000 !important;
+      }
+      .r_nav_div > .active {
+        height: 160px;
+        box-shadow: 0px 4px 6px #3e3d5f1a;
+      }
+      .r_button1:hover {
+        background: #442460;
+      }
+      .r_button1 {
+        width: 200px;
+        height: 50px;
+        background: #442460;
+      }
+      .r_button2:hover {
+        background: #fff;
+        color: #000000;
+      }
+      .r_button2 {
+        width: 160px;
+        height: 50px;
+        color: #000000;
+        border: 1px solid #442460;
+      }
+      .r_box {
+        height: 161px;
+        box-shadow: 0px 4px 6px #3e3d5f1a;
+        background: #fff;
+      }
+      .r_navbar .active {
+        border-bottom: 3px solid #ffb900;
+        color: #000 !important;
+        font-weight: bold;
+        background-color: #fff !important;
+      }
+      .r_detail2 {
+        margin-top: 150px;
+        margin-left: 20px;
+        margin-right: 10px;
+        height: 50px;
+        background: #fff8e5;
+        box-shadow: 0px 4px 6px #3e3d5f1a;
+      }
+      .r_detail3 {
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 10px;
+        height: 50px;
+        background: #fff8e5;
+        box-shadow: 0px 4px 6px #3e3d5f1a;
+      }
+      .r_detail1 {
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 10px;
+        height: 100px;
+        background: #fff8e5;
+        box-shadow: 0px 4px 6px #3e3d5f1a;
+      }
+      .r_div3 {
+        margin-top: 16px;
+        height: 103px;
+        background-color: #f8f5fa;
+        border-radius: 5px 0px 0px 5px;
+        border-left: 10px solid #ebad7d;
+        box-shadow: 0px 4px 6px #3e3d5f1a;
+      }
+      .r_div2,
+      .r_div1 {
+        height: 103px;
+        background-color: #f8f5fa;
+        margin-top: 10px;
+        border-radius: 5px 0px 0px 5px;
+        border-left: 10px solid #7afd5f;
+        box-shadow: 0px 4px 6px #3e3d5f1a;
+      }
+      .r_box_response1 {
+        height: 63px;
+        text-align: center;
+        background-color: #ffffff;
+        border-radius: 3px;
+      }
+      .r_button_active {
+        height: 23px;
+        line-height: 23px;
+        border: 1px solid #7afd5f;
+        border-radius: 3px;
+        font: normal normal normal 16px/25px Calibri;
+        color: #43425d;
+      }
+
+      .r_detail_active {
+        font: normal normal normal 16px/16px Calibri;
+        letter-spacing: 0px;
+        color: #3737c8;
+        padding-right: 20px;
+        border-right: 1px solid #d0d0d0;
+      }
+      .r_editcontend {
+        background-color: #fff;
+        box-shadow: 0px 4px 6px #3e3d5f1a;
+      }
+      .r_0response {
+        font: normal normal normal 16px/20px Calibri;
+        letter-spacing: 0px;
+        color: #43425d;
+      }
+      .r_h6 {
+        font: normal normal bold 20px/25px Calibri;
+        color: #43425d;
+      }
+      .r_tab_show {
+        box-shadow: 0px 4px 6px #3e3d5f1a;
+        height: 160px;
+      }
+      .r_divmain {
+          overflow-x: scroll ;
+        }
+      .a_tab {
+        overflow-x: scroll;
+      }
+      @media only screen and (max-width: 600px) {
+        .r_containermain {
+          height: 80px;
+        }
+        .r_mainp {
+          font: normal normal bold 15px/15px Calibri;
+        }
+        .r_navbar {
+          background-size: contain;
+        }
+      }
+
+      @media only screen and (min-width: 1240px) {
+        .r_fullimage {
+          background-size: cover;
+        }
+      }
+      @media only screen and (max-width:999px) {
+        
+      }
+      @media only screen and (max-width: 1240px) {
+        .r_show2 > div{
+          width: 1200px;
+        }
+        .r_show2{
+          overflow-x: scroll !important;
+        }
+        .a_tab > div {
+          width: 1200px;
+        }
+        .a_tab {
+          overflow-x: scroll !important;
+        }
+       
+      }
+      @media only screen and (max-width: 510px) {
+        .r_navbar {
+          width: 100%;
+        }
+        .r_button1,
+        .r_button2 {
+          margin-bottom: 10px !important;
+          width: 100% !important;
+        }
+      }
+      @media only screen and (max-width: 620px) {
+        .r_tabel {
+          width: 25px;
+        }
+      }
+      @media only screen and (min-width: 768px) {
+        .r_navbar > li {
+          padding-left: 20px;
+        }
+        .r_navbar {
+          margin-left: 45px !important;
+          margin-right: 45px !important;
+          padding-right: 20px;
+        }
+        
+      }
+    </style>
+  </head>
+  <body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"
+              ><i class="fas fa-bars"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" role="button"
+              ><i class="fas fa-search"></i
+            ></a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a
+              class="nav-link"
+              data-widget="navbar-search"
+              href="#"
+              role="button"
+              >Search or help</a
+            >
+          </li>
+        </ul>
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+          <!-- Navbar Search -->
+          <li class="nav-item">
+            <a class="">
+              <img src="img/support-17.svg" />
+            </a>
+            <div class="navbar-search-block">
+              <form class="form-inline">
+                <div class="input-group input-group-sm">
+                  <input
+                    class="form-control form-control-navbar"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-navbar"
+                      type="button"
+                      data-widget="navbar-search"
+                    >
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </li>
+          <!-- Messages Dropdown Menu -->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+              <img src="img/Chat Icon.svg" />
+              <span class="badge badge-danger navbar-badge">3</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <img
+                    src="dist/img/user1-128x128.jpg"
+                    alt="User Avatar"
+                    class="img-size-50 mr-3 img-circle"
+                  />
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      Brad Diesel
+                      <span class="float-right text-sm text-danger"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </h3>
+                    <p class="text-sm">Call me whenever you can...</p>
+                    <p class="text-sm text-muted">
+                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
+                    </p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <img
+                    src="dist/img/user8-128x128.jpg"
+                    alt="User Avatar"
+                    class="img-size-50 img-circle mr-3"
+                  />
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      John Pierce
+                      <span class="float-right text-sm text-muted"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </h3>
+                    <p class="text-sm">I got your message bro</p>
+                    <p class="text-sm text-muted">
+                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
+                    </p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <img
+                    src="dist/img/user3-128x128.jpg"
+                    alt="User Avatar"
+                    class="img-size-50 img-circle mr-3"
+                  />
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      Nora Silvester
+                      <span class="float-right text-sm text-warning"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </h3>
+                    <p class="text-sm">The subject goes here</p>
+                    <p class="text-sm text-muted">
+                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
+                    </p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer"
+                >See All Messages</a
+              >
+            </div>
+          </li>
+          <!-- Notifications Dropdown Menu -->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+              <i class="far fa-bell"></i>
+              <span class="badge badge-warning navbar-badge">15</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <span class="dropdown-item dropdown-header"
+                >15 Notifications</span
+              >
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-envelope mr-2"></i> 4 new messages
+                <span class="float-right text-muted text-sm">3 mins</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-users mr-2"></i> 8 friend requests
+                <span class="float-right text-muted text-sm">12 hours</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-file mr-2"></i> 3 new reports
+                <span class="float-right text-muted text-sm">2 days</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer"
+                >See All Notifications</a
+              >
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+              <span class="text-muted text-sm">Nidhi bokadiya</span>
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      Brad Diesel
+                      <span class="float-right text-sm text-danger"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </h3>
+                    <p class="text-sm">Call me whenever you can...</p>
+                    <p class="text-sm text-muted">
+                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
+                    </p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      John Pierce
+                      <span class="float-right text-sm text-muted"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </h3>
+                    <p class="text-sm">I got your message bro</p>
+                    <p class="text-sm text-muted">
+                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
+                    </p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      Nora Silvester
+                      <span class="float-right text-sm text-warning"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </h3>
+                    <p class="text-sm">The subject goes here</p>
+                    <p class="text-sm text-muted">
+                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
+                    </p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer"
+                >See All Messages</a
+              >
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+              <img src="img/Ellipse 341.svg" height="35" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.navbar -->
+
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar r_aside elevation-4">
+        <!-- Brand Logo -->
+        <header class="r_asideheader">
+          <img src="img/logo.svg" class="float-left mt-3 ml-4" />
+          <p class="float-right mr-5 mt-4 r_imagp">NEURO LAB</p>
+        </header>
+        <!-- Sidebar -->
+        <div class="sidebar p-0">
+          <nav class="">
+            <ul
+              class="nav nav-pills nav-sidebar r_ul1 flex-column"
+              data-widget="treeview"
+              role="menu"
+              data-accordion="false"
+            >
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img src="img/house.svg" />
+                  <p class="r_colorli p-sm-2">Home</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link w-100 h-100 rounded-0 mb-0">
+                  <img src="img/chart-bar-32.svg" />
+                  <p class="r_colorli p-sm-2">
+                    Client dashboard
+                    <img src="img/down_arrow.svg" class="float-right" />
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">dashboard v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">dashboard v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">dashboard v3</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link w-100 h-100 rounded-0 mb-0">
+                  <img src="img/email-84.svg" />
+                  <p class="r_colorli p-sm-2">Solutions</p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Solutions v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Solutions v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Solutions v3</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link w-100 h-100 rounded-0 mb-0">
+                  <img src="img/receipt-list-42.svg" />
+                  <p class="r_colorli p-sm-2">Payment history</p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Payment history v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Payment history v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Payment history v3</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link w-100 h-100 rounded-0 mb-0">
+                  <img src="img/Support Iocn.svg" />
+                  <p class="r_colorli p-sm-2">Resource</p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Resource v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Resource v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Resource v3</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link w-100 h-100 rounded-0 mb-0">
+                  <img src="img/$.svg" />
+                  <p class="r_colorli p-sm-2">Pricing</p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Pricing v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Pricing v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Pricing v3</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link w-100 h-100 rounded-0 mb-0">
+                  <img src="img/single-02.svg" />
+                  <p class="r_colorli p-sm-2">Help</p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Help v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Help v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Help v3</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link w-100 h-100 rounded-0 mb-0">
+                  <img src="img/settings-gear-64.svg" />
+                  <p class="r_colorli p-sm-2">Settings</p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Settings v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Settings v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p class="r_colorli p-sm-2">Settings v3</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          <!-- /.sidebar-menu -->
+        </div>
+        <!-- Scrollable modal -->
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper r_main2">
+        <!-- Content Header (Page header) -->
+
+        <div class="container-fluid r_containermain p-4">
+          <div class="r_fullimage h-100"></div>
+        </div>
+        <div class="r_mainp ml-5 mt-4">
+          User Experience Mapping - Project ABC
+        </div>
+        <div class="r_show2 ">
+          <div class="r_divmain d-none">
+            <div class="r_div1_child">
+              <div class="r_div1 ml-5 mr-4">
+                <div class="row m-0">
+                  <div class="col-7">
+                    <div class="row mt-3 ml-3">
+                      <h6 class="r_h6 ">Vinod 4</h6>
+                      <p class="ml-2">Last access: Tuesday. 21 Sep 2021 20:16:08 GMT</p>
+                      <button type="button" class=" btn-outline r_button_active ml-3"  ><p class="pb-2">Active</p></button>
+                    </div>
+                    <ul class="">
+                      <li class="d-inline r_detail_active">Projects details</li>
+                      <li class="d-inline r_detail_active">Share</li>
+                      <li class="d-inline r_detail_active">Fieldwork status</li>
+                      <li class="d-inline r_detail_active">Process </li>
+                      <li class="d-inline r_detail_active">Report</li>
+                    </ul>
+                  </div>
+                  <div class="col-5">
+                    <div class="row float-right r_respnose mr-3">
+                      <div class="r_box_response1 mt-4 ">
+                          <p class="m-0 mt-2">0</p>
+                          <p class="pl-2 pr-2">Responses</p>
+                      </div>
+                      <div class="r_box_response1 ml-3  mt-4">
+                        <p class="m-0 mt-2 r_0response">0%</p>
+                        <p class="pl-2 pr-2">Completion status</p>
+                      </div>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="r_div2 ml-5 mr-4">
+            <div class="col-7">
+              <div class="row mt-3 ml-3">
+                <h6 class="r_h6 mt-3">test123</h6>
+                <p class="ml-2 mt-3">Last access: Tuesday. 21 Sep 2021 20:16:08 GMT</p>
+                <button type="button" class="mt-3 btn-outline r_button_active ml-3"  ><p class="pb-2">In-active</p></button>
+              </div>
+              <ul class="">
+                <li class="d-inline r_detail_active">Projects details</li>
+                <li class="d-inline r_detail_active">Share</li>
+                <li class="d-inline r_detail_active">Fieldwork status</li>
+                <li class="d-inline r_detail_active">Process </li>
+                <li class="d-inline r_detail_active">Report</li>
+              </ul>
+              <div class="col-5">
+               
+              </div>
+            </div>
+          </div>
+          <div class="r_div3 ml-5 mr-4">
+            <div class="col-7">
+              <div class="row mt-3 ml-3">
+                <h6 class="r_h6 mt-3">test123</h6>
+                <p class="ml-2 mt-3">Last access: Tuesday. 21 Sep 2021 20:16:08 GMT</p>
+                <button type="button" class="mt-3 btn-outline r_button_active ml-3"  ><p class="pb-2">In-active</p></button>
+              </div>
+                <ul class="">
+                  <li class="d-inline r_detail_active">Projects details</li>
+                  <li class="d-inline r_detail_active">Share</li>
+                  <li class="d-inline r_detail_active">Fieldwork status</li>
+                  <li class="d-inline r_detail_active">Process </li>
+                  <li class="d-inline r_detail_active">Report</li>
+                </ul>
+              <div class="col-5">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="a_tab">
+          <div class="a_tab_child">
+            <ul
+              class="nav nav-pills r_navbar rounded-0"
+              id="pills-tab"
+              role="tablist"
+            >
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  id="pills-home-tab"
+                  data-toggle="pill"
+                  href="#pills-home"
+                  role="tab"
+                  aria-controls="pills-home"
+                  aria-selected="true"
+                  >Projects</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link active"
+                  id="pills-profile-tab"
+                  data-toggle="pill"
+                  href="#pills-profile"
+                  role="tab"
+                  aria-controls="pills-profile"
+                  aria-selected="false"
+                  >Projects details</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  id="pills-Setup-tab"
+                  data-toggle="pill"
+                  href="#pills-prifl"
+                  role="tab"
+                  aria-controls="pills-Setup"
+                  aria-selected="false"
+                  >Setup</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  id="pills-Share-tab"
+                  data-toggle="pill"
+                  href="#pills-prifl"
+                  role="tab"
+                  aria-controls="pills-Share"
+                  aria-selected="false"
+                  >Share</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  id="pills-Fieldworkstatus-tab"
+                  data-toggle="pill"
+                  href="#pills-Fieldworkstatus"
+                  role="tab"
+                  aria-controls="pills-Fieldworkstatus"
+                  aria-selected="false"
+                  >Fieldwork status</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  id="pills-Process-tab"
+                  data-toggle="pill"
+                  href="#pills-prifl"
+                  role="tab"
+                  aria-controls="pills-Process"
+                  aria-selected="false"
+                  >Process</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  id="pills-Report-tab"
+                  data-toggle="pill"
+                  href="#pills-Report"
+                  role="tab"
+                  aria-controls="pills-Report"
+                  aria-selected="false"
+                  >Report</a
+                >
+              </li>
+            </ul>
+            <div class="tab-content r_nav_div_li ml-5 mr-5 mt-3
+            id="pills-tabContent">
+            <div
+              class="tab-pane fade"
+              id="pills-home"
+              role="tabpanel"
+              aria-labelledby="pills-home-tab"
+            >
+              <h3 class="ml-5">Menu 1</h3>
+              <p>Some content in menu 1.</p>
+            </div>
+            <div
+              class="tab-pane r_tab_show fade show active bg-white"
+              id="pills-profile"
+              role="tabpanel"
+              aria-labelledby="pills-profile-tab"
+            >
+              <table class="table r_tabel">
+                <head>
+                  <tr>
+                    <th scope="col ">Project name</th>
+                    <th scope="col">Project ID</th>
+                    <th scope="col">Research market</th>
+                    <th scope="col">Sample size</th>
+                    <th scope="col">Survey type</th>
+                  </tr>
+                </head>
+                <tbody>
+                  <tr>
+                    <td>Vinod 4</td>
+                    <td>61404b2ab963504563cdfbs4</td>
+                    <td>India</td>
+                    <td>10</td>
+                    <td>False</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="pills-contact"
+              role="tabpanel"
+              aria-labelledby="pills-contact-tab"
+            >
+              <h3 class="ml-5">Menu 2</h3>
+              <p>Some content in menu 1.</p>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="pills-prifl"
+              role="tabpanel"
+              aria-labelledby="pills-rog-tab"
+            >
+              <h3 class="ml-5">Menu 1</h3>
+              <p>Some content in menu 1.</p>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="pills-prifl"
+              role="tabpanel"
+              aria-labelledby="pills-rog-tab"
+            >
+              <h3 class="ml-5">Menu 1</h3>
+              <p>Some content in menu 1.</p>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="pills-prifl"
+              role="tabpanel"
+              aria-labelledby="pills-rog-tab"
+            >
+              <h3 class="ml-5">Menu 1</h3>
+              <p>Some content in menu 1.</p>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="pills-prifl"
+              role="tabpanel"
+              aria-labelledby="pills-rog-tab"
+            >
+              <h3 class="ml-5">Menu 1</h3>
+              <p>Some content in menu 1.</p>
+            </div>
+          </div>
+          <div class="r_editcontend mt-3 d-none ml-5 mr-5"">
+            <div class="row m-0">
+              <div class="col-12 border-bottom mt-2">
+                Upload task description
+              </div>
+            </div>
+            <div class="row m-0">
+              <div class="col-6">
+                <form>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="
+                        form-control
+                        mt-4
+                        border-left-0 border-right-0 border-top-0
+                      "
+                      placeholder="Sub Task 1 (Optional)"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="
+                        form-control
+                        mt-4
+                        border-left-0 border-right-0 border-top-0
+                      "
+                      placeholder="Sub Task 2 (Optional)"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="
+                        form-control
+                        mt-4
+                        border-left-0 border-right-0 border-top-0
+                      "
+                      placeholder="Sub Task 3 (Optional)"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="
+                        form-control
+                        mt-4
+                        border-left-0 border-right-0 border-top-0
+                      "
+                      placeholder="Sub Task 3 (Optional)"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="
+                        form-control
+                        mt-4
+                        border-left-0 border-right-0 border-top-0
+                      "
+                      placeholder="Activity time"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="col-6">
+                <div class="r_detail1 pt-4 pl-1 pr-1">
+                  Task Description : Please define the overall task you would
+                  like to user to complete on the website / app/ digital asset
+                  that he is testing. Each task can have upto 3 Sub Tasks.
+                </div>
+                <div class="r_detail2 pl-1 pr-1">
+                  Link of Digital Asset to be Tested
+                </div>
+                <div class="r_detail3 pl-1 pr-1">
+                  Activity Time : Refers to overall time to complete task 1
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row m-0 mt-3">
+            <div class="col pr-5">
+              <button
+                type="button"
+                class="btn btn-primary r_button1 float-right ml-5"
+              >
+                Confirm project
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-danger r_button2 float-right mr-0"
+              >
+                Edit project
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="dist/js/idstats.js"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard3.js"></script>
+    <script>
+      jQuery(function ($) {
+        $(".r_button2").click(function () {
+          $(".r_nav_div_li").hide();
+          $(".r_show").append(`
+          `);
+          x.html("cancel").removeClass("r_show");
+        });
+        $(".r_button1").click(function () {
+          $(".a_tab").hide();
+          $('.r_divmain').removeClass('d-none')
+        });
+      });
+
+      (function(){
+        //alert('ok');
+         //$(selector).action();
+         $('.r_button2').click(function(){
+           //alert('ok')
+           //$(selector).action();
+           $('.r_tabel').hide();
+           $('.r_editcontend').removeClass('d-none');
+         });
+      })(jQuery);
+    </script>
+  </body>
+</html>

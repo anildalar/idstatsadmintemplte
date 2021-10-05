@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idstats</title>
+
+  <!-- Google Font: Source Sans Pro -->
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+  rel = "stylesheet">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/idstats.min.css">
+  <style>
+      .r_aside{
+          background:#442460 ;
+      }
+      .r_asideheader{
+        height:56px;
+        background:#FDFAFD;
+      }
+      .r_ul1 > li{
+        background:#56396F;
+        border-bottom: 1px solid #442460;
+      }
+      .r_ul1 > li > p{
+        background: red;
+      }
+      .r_containermain{
+        height: 144px;
+        background:#F8EEFA;
+      }
+      .r_main2{
+        background: #FDFAFD;
+      }
+      .r_mainp{
+        font: normal normal bold 32px/39px Calibri;
+        letter-spacing: 0px;
+        color: #43425D;
+        opacity: 1;
+      }
+      .r_colorli{
+        font: normal normal normal 16px/19px Calibri;
+        letter-spacing: 0px;
+        color: #C6BCCF;
+        opacity: 1;
+      }
+      .r_fullimage{
+        background-image: url("img/Full\ image.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .sidebar .nav-link{
+        border-left: 6px solid #56396F;
+      }
+      .nav-icon:hover{
+        color: chartreuse !important;
+      }
+      .r_p1{
+        font: normal normal normal 20px/24px Avenir;
+        color: #4D4F5C;
+      }
+      .r_p2{  
+        font: normal normal normal 14px/16px Avenir;
+        color: #4D4F5C;
+      }
+      ::placeholder{
+        font: normal normal normal 16px/25px Avenir;
+        color: #000000 !important;
+      }
+       .r_h{
+        font: normal normal normal 40px/49px Calibri;
+        letter-spacing: 0px;
+        color: #000000;
+      }
+      .r_imagp{
+        font: normal normal normal 20px/14px Calibri;
+        letter-spacing: 0.3px;
+        color: #4A274F;
+      }
+      .r_navbar{
+        border-bottom: 1px solid #CBCBCB;
+        background-color: #fff;
+      }
+      .r_navbar > li > a{
+        color: #000 !important;
+      }
+      .r_nav_div > .active{
+        height:160px;
+        box-shadow: 0px 4px 6px #3E3D5F1A;
+      }
+      .r_button1:hover{
+        background: #442460;
+      }
+      .r_box{
+        height: 161px;
+        box-shadow: 0px 4px 6px #3E3D5F1A;
+        background: #fff ;
+      }
+      .r_tabel_head{
+        background-color: #F1DEF4;
+        font: normal normal bold 16px/19px Calibri;
+        color: #694F7F;
+      }
+      .r_tabel_row{
+        font: normal normal normal 16px/20px Calibri;
+        color: #4D4F5C;
+      }
+      .r_card_p{
+        font: normal normal normal 16px/16px Calibri;
+        color: #000000;
+      }
+      .r_h{
+        font: normal normal bold 16px/16px Calibri;
+        color: #000000;
+      }
+      .r_div_small{
+        height: 20px;
+        width: 400px;
+        margin-left: 225px;
+        margin-top: -35px;
+        background: #56DC5F;
+      }
+      .r_div_small2{
+        height: 20px;
+        margin-top: -35px;
+        margin-left:75px;
+        background: #56DC5F;
+      }
+      .r_2border_div{
+        border-top: 1px solid #3E3D5F1A;
+        border-bottom: 1px solid #3E3D5F1A;
+      }
+      .r_refresh_image{
+        background: url("img/Group587.svg");
+        background-repeat: no-repeat;
+      }
+      .r_p_complete{
+        margin-left:150px;
+      }
+      .r_chart_image{
+        background: url("img/Group\ 591.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-top: 25px;
+        margin-left: 370px;
+        margin-bottom: 20px;
+        height:200px;
+      }
+      .r_setup_button:hover{
+          background-color:#fff;
+          border:1px solid #442460;
+      }
+      .r_refresh_data{
+        font: normal normal normal 14px/14px Avenir;
+        color: #3737C8;
+      }
+      div#chart {
+         width: 100%;
+         text-align: center;
+        }
+      div#chart p {
+        text-align: center;
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        color: #bdc3c7;
+      }
+      .r_navbar .active{
+        border-bottom:3px solid #FFB900;
+        color: #000 !important;
+        font-weight: bold;
+        background-color:#fff !important;
+      }
+      .r_report_button2{
+        width: 173px;
+        height: 40px;
+        color: #000000;
+        border: 1px solid #442460;
+        border-radius: 4px;   
+      }
+      .r_report_button2:hover{
+        background-color:#fff !important;
+        color: #000 !important;
+       border: 1px solid #442460 !important;
+      }
+      .r_report_button{
+        width: 186px;
+        height: 45px;
+        background-color: #442460;
+      }
+      .r_report_button:hover{
+        background-color: #442460;
+      }
+      .r_report_mainbox2{
+        height: 409px;
+        background-color: #EFEFEF;
+      }
+      .r_report_box{
+        height: 510px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+        border-radius: 4px;
+      }
+      .r_report_video{
+        font: normal normal normal 22px/20px Calibri;
+        color: #000000;
+      }
+      .r_report_mainbox1{
+        height: 510px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+        border-radius: 4px;
+      }
+      .r_setup_5col{
+        height:528px;
+        background-color: #B4A7BF;
+      }
+      .r_setup_7col1{
+        height: 126px;
+        background-color: #fff;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+      }
+      .r_setup_7col2{
+        height: 195px;
+        background-color: #fff;
+        box-shadow: 0px 4px 6px #3E3D5F1A;
+      }
+      .r_setup_7col3{
+        height: 194px;
+        background-color: #fff;
+        box-shadow: 0px 4px 6px #3E3D5F1A;
+      }
+      .r_share_box{
+          height: 410px;
+          background-color: #fff;
+          box-shadow: 0px 2px 6px #3E3D5F1A;
+      }
+      .r_response2{
+        font: normal normal bold 20px/16px Calibri;
+        color: #000000;
+      }
+      .r_productlist_box{
+        height: 307px;
+        background-color: #fff;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+        border-radius: 4px;
+      }
+      .r_sharelink{
+        height: 185px;
+        background: #fff;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+      }
+      .r_report_demo{
+        font: normal normal normal 22px/16px Calibri;
+        color: #000000;
+      }
+      .r_modal_row1{
+        height: 36px;
+        background-color: #FAFAFA;
+      }
+      .r_div_scroll{
+        height:460px;
+        overflow-y: scroll;
+      }
+      .r_div_scroll2{
+        height:460px;
+        overflow-y: scroll;
+      }
+      .r_dropodiv{
+        height: 300px;
+        width:100%;
+      }
+      .r_scrollbox{
+        width: 210px;
+        background-color: #fff;
+        height: 240px;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+        border-radius: 4px;
+      }
+      .r_scroll2{
+        background-color: #FBF4FC;
+        height: 460px;
+      }
+      .a_tab{
+        overflow-x: scroll;
+      }
+      @media only screen and (max-width:600px) {
+        .r_containermain{
+          height: 80px;
+        }
+        .r_mainp{
+        font: normal normal bold 15px/15px Calibri;
+        }
+        .r_navbar{
+          background-size:contain;
+        }
+      }
+      @media only screen and (min-width:1240px) {
+        .r_fullimage{
+            background-size: cover;
+        }
+      }
+      @media only screen and (max-width:1240px) {
+        .r_divmain > div{
+          width: 1200px;
+        }
+        .r_divmain{
+         overflow-x: scroll !important;
+        }
+        .a_tab > div{
+          width:1200px;
+        }
+        .a_tab{
+          overflow-x: scroll !important;
+        }
+        
+      }
+      @media only screen and (max-width:510px) {
+        .r_navbar {
+          width:100%;
+        }
+        .r_button1,.r_button2{
+          margin-bottom: 10px !important;
+          width: 100% !important;
+        }
+      }
+      @media only screen and (max-width:620px) {
+          .r_tabel{
+            width:25px;
+          }
+      }
+      @media only screen and (min-width:768px) {
+        .r_navbar > li{
+          padding-left:20px;
+        }
+        .r_navbar{
+          margin-left: 45px !important;
+          margin-right: 45px !important;
+          padding-right: 20px;
+        }
+        .a_tab{
+          overflow-x: visible !important;
+        }
+      }
+  </style>
+</head>
+<body class="hold-transition sidebar-mini">
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Share report</h5>
+        </div>
+        <div class="modal-body">
+         <div class="r_modal_row1">https://survey.aclhemer.come/s3/6419448/standard-screener</div>
+         <div class="r_modal_row1 mt-2">5C8KR4KN</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="wrapper">
+  
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="#" role="button" data-widget="navbar-search"><i class="fas fa-search"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">Search or help</a>
+        
+      </li>
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="">
+          <img src="img/support-17.svg">
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+         <img src="img/Chat Icon.svg">
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <span class=" text-muted text-sm">Nidhi bokadiya</span> 
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <img src="img/Ellipse 341.svg" height="35">
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar r_aside elevation-4">
+    <!-- Brand Logo -->
+    <header class="r_asideheader">
+      <img src="img/logo.svg" class="float-left mt-3 ml-4">
+      <p class="float-right mr-5 mt-4 r_imagp">NEURO LAB</p>
+    </header>
+    <!-- Sidebar -->
+    <div class="sidebar p-0">
+      <nav class="">
+        <ul class="nav nav-pills nav-sidebar r_ul1 flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <img src="img/house.svg">
+              <p class="r_colorli p-sm-2">
+                Home
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/chart-bar-32.svg">
+              <p class="r_colorli p-sm-2">
+                Client dashboard
+                <img src="img/down_arrow.svg" class="float-right">
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">dashboard v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">dashboard v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">dashboard v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/email-84.svg">
+              <p class="r_colorli p-sm-2">
+                Solutions
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Solutions v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Solutions v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Solutions v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/receipt-list-42.svg">
+              <p class="r_colorli p-sm-2">
+                Payment history
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Payment history v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Payment history v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Payment history v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/Support Iocn.svg">
+              <p class="r_colorli p-sm-2">
+                Resource
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Resource v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Resource v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Resource v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/$.svg">
+              <p class="r_colorli p-sm-2">
+                Pricing
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Pricing v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Pricing v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Pricing v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/single-02.svg">
+              <p class="r_colorli p-sm-2">
+                Help
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Help v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Help v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Help v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/settings-gear-64.svg">
+              <p class="r_colorli p-sm-2">
+                Settings
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Settings v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Settings v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Settings v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- Scrollable modal -->
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper r_main2">
+    <!-- Content Header (Page header) -->
+    
+      <div class="container-fluid  r_containermain p-4">
+        <div class="r_fullimage h-100"></div>
+      </div>
+        <div class="r_mainp  ml-5 mt-4">User Experience Mapping - Project ABC</div>
+        <div class="r_show2"></div>
+      <div class="a_tab">
+        <div class="a_tab_child">
+          <ul class="nav nav-pills  r_navbar rounded-0" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link rounded-0" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Create</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link rounded-0" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Details</a>
+            </li>
+            <li class="nav-item " role="presentation">
+              <a class="nav-link rounded-0" id="pills-Setup-tab" data-toggle="pill" href="#pills-productlist" role="tab" aria-controls="pills-Setup" aria-selected="false">Product list</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active  rounded-0" id="pills-Share-tab" data-toggle="pill" href="#pills-Designself" role="tab" aria-controls="pills-Share" aria-selected="false">Design self</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link rounded-0" id="pills-Fieldworkstatus-tab" data-toggle="pill" href="#pills-Fieldworkstatus" role="tab" aria-controls="pills-Fieldworkstatus" aria-selected="false">Set Up</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link rounded-0" id="pills-Process-tab" data-toggle="pill" href="#pills-prifl" role="tab" aria-controls="pills-Process" aria-selected="false">Distribute</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link rounded-0" id="pills-Report-tab" data-toggle="pill" href="#pills-Fieldworstatus" role="tab" aria-controls="pills-Fieldworkstatus" aria-selected="false">Fieldwork status</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link rounded-0" id="pills-Report-tab" data-toggle="pill" href="#pills-Report" role="tab" aria-controls="pills-Report" aria-selected="false">Report</a>
+            </li>
+          </ul>
+          <div class="tab-content r_nav_div_li  ml-5 mr-5 mt-3 id="pills-tabContent">
+            
+            <div class="tab-pane fade " id="pills-productlist" role="tabpanel" aria-labelledby="pills-rog-tab">
+                <div class="r_productlist_box p-3">
+                  <h5 class="p-2" style="font: normal normal normal 16px/16px Calibri;color: #000;">Total products: 2</h5>
+                  <table class="table ml-2" style="font: normal normal normal 16px/20px Calibri;color: #4D4F5C;">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">SKU</th>
+                        <th scope="col">Display</th>
+                        <th scope="col">Primary</th>
+                        <th scope="col">Side</th>
+                        <th scope="col">Ingredient</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>museli</td>
+                        <td>safola</td>
+                        <td>safola</td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><img src="img/edit_icon.svg" class="pr-2">Edit</a><a class="float-right"><img src="img/remove_icon.svg" class="pr-2">Remove</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>museli</td>
+                        <td>safola</td>
+                        <td>safola</td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><img src="img/edit_icon.svg" class="pr-2">Edit</a><a class="float-right"><img src="img/remove_icon.svg" class="pr-2">Remove</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>museli</td>
+                        <td>safola</td>
+                        <td>safola</td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><img src="img/edit_icon.svg" class="pr-2">Edit</a><a class="float-right"><img src="img/remove_icon.svg" class="pr-2">Remove</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>museli</td>
+                        <td>safola</td>
+                        <td>safola</td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><u>Click</u></a></td>
+                        <td><a class=""><img src="img/edit_icon.svg" class="pr-2">Edit</a><a class="float-right"><img src="img/remove_icon.svg" class="pr-2">Remove</a></td>
+                      </tr>
+                    </tbody>
+                  </table> 
+                  <button class="btn btn-primary mt-4 float-right" style="width: 166px; height: 45px;border-radius: 4px;background:#442460">Add product</button>
+                </div>
+            </div>
+            <div class="tab-pane fade show active" id="pills-Designself" role="tabpanel" aria-labelledby="pills-rog-tab">
+              
+              <div class="row m-0">
+                  <div class="col-8">
+                    <div class=" droppable-7 " style="height: 400px;">
+                      AAA
+                    </div>
+                  </div>
+                  <div class="col-4 r_div_scroll">
+                    <ul d="gallery" class="pl-0 d-flex   " >
+                      <li class="draggable-4">
+                          <div class="r_scrollbox">
+                            <h4 style="font: normal normal bold 20px/16px Calibri;" class="p-2">Position 1*1</h4>
+                            <img src="img/Muesli.png">
+                            <div class="d-flex bd-highlight mt-2 ml-1">
+                              <div class="p-1 flex-fill bd-highlight ml-2" style="background-color: #FFF8E5;color:#000;font: normal normal normal 12px/16px Calibri;">Price <br><p class="mt-1" style="font: normal normal bold 14px/16px Calibri;color: #000000;">44</p> </div>
+                              <div class="p-1 flex-fill bd-highlight ml-2 mr-2" style="background-color: #FFF8E5;color:#000;font: normal normal normal 12px/16px Calibri;">Offers<br><pclass="mt-1" style="font: normal normal bold 14px/16px Calibri;color: #000000;">Buy 1 get 1 free</p></div>
+                            </div>
+                            <form>
+                              <div class="form-group w-50 p-2">
+                                <select style="border:2px solid #3E3D5F1A" class="form-control border-left-0 border-right-0 border-top-0 rounded-0" id="exampleFormControlSelect1">
+                                  <option>Large</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                </select>
+                              </div>
+                            </form>
+                          </div>
+                      </li>
+                      <li class="draggable-4 ml-2 ui-widget-content ui-corner-tr">
+                        
+                          <div class="r_scrollbox">
+                            <h4 style="font: normal normal bold 20px/16px Calibri;" class="p-2">Position  1*1</h4>
+                            <img src="img/Muesli.png">
+                            <div class="d-flex bd-highlight mt-2 ml-1">
+                              <div class="p-1 flex-fill bd-highlight ml-2" style="background-color: #FFF8E5;color:#000;font: normal normal normal 12px/16px Calibri;">Price <br><p class="mt-1" style="font: normal normal bold 14px/16px Calibri;color: #000000;">44</p> </div>
+                              <div class="p-1 flex-fill bd-highlight ml-2 mr-2" style="background-color: #FFF8E5;color:#000;font: normal normal normal 12px/16px Calibri;">Offers<br><pclass="mt-1" style="font: normal normal bold 14px/16px Calibri;color: #000000;">Buy 1 get 1 free</p></div>
+                            </div>
+                            <form>
+                              <div class="form-group w-50 p-2">
+                                <select style="border:2px solid #3E3D5F1A" class="form-control border-left-0 border-right-0 border-top-0 rounded-0" id="exampleFormControlSelect1">
+                                  <option>Large</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                </select>
+                              </div>
+                            </form>
+                          </div>
+                      </li>
+                      <li class="draggable-4 ml-2 ui-widget-content ui-corner-tr">
+                        
+                          <div class="r_scrollbox">
+                            <h4 style="font: normal normal bold 20px/16px Calibri;" class="p-2">Position 1*2</h4>
+                            <img src="img/Muesli.png">
+                            <div class="d-flex bd-highlight mt-2 ml-1">
+                              <div class="p-1 flex-fill bd-highlight ml-2" style="background-color: #FFF8E5;color:#000;font: normal normal normal 12px/16px Calibri;">Price <br><p class="mt-1" style="font: normal normal bold 14px/16px Calibri;color: #000000;">44</p> </div>
+                              <div class="p-1 flex-fill bd-highlight ml-2 mr-2" style="background-color: #FFF8E5;color:#000;font: normal normal normal 12px/16px Calibri;">Offers<br><pclass="mt-1" style="font: normal normal bold 14px/16px Calibri;color: #000000;">Buy 1 get 1 free</p></div>
+                            </div>
+                            <form>
+                              <div class="form-group  w-50 p-2">
+                                <select style="border:2px solid #3E3D5F1A" class="form-control border-left-0 border-right-0 border-top-0 rounded-0" id="exampleFormControlSelect1">
+                                  <option>Large</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                </select>
+                              </div>
+                            </form>
+                          </div>
+                        
+                      </li>
+                      <li class="draggable-4 ml-2 ui-widget-content ui-corner-tr">
+                        
+                          <div class="r_scrollbox">
+                            <h4 style="font: normal normal bold 20px/16px Calibri;" class="p-2">Position 1*3</h4>
+                            <img src="img/Muesli.png">
+                            <div class="d-flex bd-highlight mt-2 ml-1">
+                              <div class="p-1 flex-fill bd-highlight ml-2" style="background-color: #FFF8E5;color:#000;font: normal normal normal 12px/16px Calibri;">Price <br><p class="mt-1" style="font: normal normal bold 14px/16px Calibri;color: #000000;">44</p> </div>
+                              <div class="p-1 flex-fill bd-highlight ml-2 mr-2" style="background-color: #FFF8E5;color:#000;font: normal normal normal 12px/16px Calibri;">Offers<br><pclass="mt-1" style="font: normal normal bold 14px/16px Calibri;color: #000000;">Buy 1 get 1 free</p></div>
+                            </div>
+                            <form>
+                              <div class="form-group w-50 p-2">
+                                <select style="border:2px solid #3E3D5F1A"  class="form-control border-left-0 border-right-0 border-top-0 rounded-0" id="exampleFormControlSelect1">
+                                  <option>Large</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                </select>
+                              </div>
+                            </form>
+                          </div>
+                      
+                      </li>
+                    </ul>
+                  </div> 
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<!-- AdminLTE -->
+<script src="dist/js/idstats.js"></script>
+<!-- OPTIONAL SCRIPTS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard3.js"></script>
+<script>
+  $(function() {
+     $('.draggable-4').draggable({ revert: true });
+     $('.droppable-7').droppable({
+        hoverClass: 'active',
+        drop: function(e, ui) {
+          //var t = $(this);
+          //var c = t.html();
+          $(this).append(ui.draggable.remove().html());
+          $(this).droppable('destroy');
+          //$( this ).addClass( "ui-state-highlight" ).find( "p" ).html( "i'm destroyed!" ); 
+        }
+     });
+  });
+</script>
+</body>
+</html>

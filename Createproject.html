@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idstats</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="dist/css/idstats.min.css">
+  <style>
+      .r_aside{
+          background:#442460 ;
+      }
+      .r_asideheader{
+        height:56px;
+        background:#FDFAFD;
+      }
+      .r_ul1 > li{
+        background:#56396F;
+        border-bottom: 1px solid #442460;
+      }
+      .r_ul1 > li > p{
+        background: red;
+      }
+      .r_containermain{
+        height: 144px;
+        background:#F8EEFA;
+      }
+      .r_main2{
+        background: #FDFAFD;
+      }
+      .r_fullimage{
+        background-image: url("img/Full\ image.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .r_mainp{
+        font: normal normal bold 32px/39px Calibri;
+        letter-spacing: 0px;
+        color: #43425D;
+      }
+      .r_colorli{
+        font: normal normal normal 16px/19px Calibri;
+        letter-spacing: 0px;
+        color: #C6BCCF;
+        opacity: 1;
+      }
+      .r_button{
+        color: #fff;
+        background:#442460;
+        border:1px solid #442460 !important;
+      }
+      .r_reset_button{
+        color:#000;
+        border:1px solid #442460 !important;
+      }
+      .r_button:hover,.r_reset_button:hover{
+        color: #fff;
+        background:#442460 !important;
+        border: 1px solid #442460  !important;
+      }
+      .active{
+        border-left: 6px solid #FFB900 !important;
+        background-color: #442460 !important;
+      }
+      .sidebar .nav-link{
+        border-left: 6px solid #56396F;
+      }
+      .nav-icon:hover{
+        color: chartreuse !important;
+      }
+      .r_p1{
+        font: normal normal normal 20px/24px Avenir;
+        color: #4D4F5C;
+      }
+      .r_p2{  
+        font: normal normal normal 14px/16px Avenir;
+        color: #4D4F5C;
+      }
+      ::placeholder{
+        font: normal normal normal 16px/25px Avenir;
+        color: #000000 !important;
+      }
+       .r_h{
+        font: normal normal normal 40px/49px Calibri;
+        letter-spacing: 0px;
+        color: #000000;
+      }
+      .r_imagp{
+        font: normal normal normal 20px/14px Calibri;
+        letter-spacing: 0.3px;
+        color: #4A274F;
+      }
+      @media only screen and (max-width:600px) {
+        .r_containermain{
+          height: 80px;
+        }
+      }
+      @media only screen and (min-width:1240px) {
+        .r_fullimage{
+            background-size: cover;
+        }
+      }
+  </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg r_modal modal-dialog-centered">
+      <div class="modal-content">
+          <h2 class="modal-title r_h pt-4 pl-4" id="exampleModalLabel">Let's create a project for you!</h2>
+        <p class="pl-4 pt-2 r_p1">We need a little information to create your first project. This should take just a couple of minutes.</p>
+        <p class="pl-4  r_p2">All fields are required*</p>
+        <div class="modal-body">
+          <form>
+            <div class="row ">
+              <div class="col ml-2 position-relative ">
+                <input type="text" class="form-control   border-top-0 border-left-0 border-right-0 rounded-0">
+                <span class="position-absolute text-danger">Enter project name</span>
+              </div>
+              <div class="col mr-5 ">
+                <input type="text" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" placeholder="Enter research market">
+              </div>
+            </div>
+            <div class="row ">
+              <div class="col ml-2  ">
+                <input type="text" class="form-control r_input border-top-0 border-left-0 border-right-0 rounded-0" placeholder="Enter sample size">
+              </div>
+              <div class="col mr-5">
+                <select class="form-control border-top-0 border-left-0 border-right-0 rounded-0" id="exampleFormControlSelect1">
+                  <option>Survey type</option>
+                  <option>Qualitative Research</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary r_reset_button" data-dismiss="modal">Reset screen</button>
+          <button type="button" class="btn btn-md btn-primary r_button border-0 shadow-none">Create project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-search"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">Search or help</a>
+        
+      </li>
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="">
+          <img src="img/support-17.svg">
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+         <img src="img/Chat Icon.svg">
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <span class=" text-muted text-sm">Nidhi bokadiya</span> 
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <img src="img/Ellipse 341.svg" height="35">
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar r_aside elevation-4">
+    <!-- Brand Logo -->
+    <header class="r_asideheader">
+      <img src="img/logo.svg" class="float-left mt-3 ml-4">
+      <p class="float-right mr-5 mt-4 r_imagp">NEURO LAB</p>
+    </header>
+    <!-- Sidebar -->
+    <div class="sidebar p-0">
+      <nav class="">
+        <ul class="nav nav-pills nav-sidebar r_ul1 flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <img src="img/house.svg">
+              <p class="r_colorli p-sm-2">
+                Home
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/chart-bar-32.svg">
+              <p class="r_colorli p-sm-2">
+                Client dashboard
+                <img src="img/down_arrow.svg" class="float-right">
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">dashboard v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">dashboard v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">dashboard v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/email-84.svg">
+              <p class="r_colorli p-sm-2">
+                Solutions
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Solutions v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Solutions v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Solutions v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/receipt-list-42.svg">
+              <p class="r_colorli p-sm-2">
+                Payment history
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Payment history v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Payment history v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Payment history v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/Support Iocn.svg">
+              <p class="r_colorli p-sm-2">
+                Resource
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Resource v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Resource v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Resource v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/$.svg">
+              <p class="r_colorli p-sm-2">
+                Pricing
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Pricing v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Pricing v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Pricing v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/single-02.svg">
+              <p class="r_colorli p-sm-2">
+                Help
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Help v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Help v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Help v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/settings-gear-64.svg">
+              <p class="r_colorli p-sm-2">
+                Settings
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Settings v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Settings v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Settings v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- Scrollable modal -->
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper r_main2">
+    <!-- Content Header (Page header) -->
+    <div class="container-fluid  r_containermain p-4">
+      <div class="r_fullimage h-100"></div>
+    </div>
+    <div class="row m-0">
+      <div class="col p-0">
+        <div class="r_mainp float-left ml-4 mt-4">Usability</div>
+      </div>
+      <div class="col p-0">
+        <button type="button" data-toggle="modal" data-target="#exampleModal"  class="btn  btn-lg r_button float-right mr-4 mt-3">Create new project</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/idstats.js"></script>
+
+<script src="plugins/chart.js/Chart.min.js"></script>
+<script src="dist/js/demo.js"></script>
+<script src="dist/js/pages/dashboard3.js"></script>
+</body>
+</html>

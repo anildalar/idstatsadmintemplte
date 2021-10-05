@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idstats</title>
+
+  <!-- Google Font: Source Sans Pro -->
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/idstats.min.css">
+  <style>
+      .r_aside{
+          background:#442460 ;
+      }
+      .r_asideheader{
+        height:56px;
+        background:#FDFAFD;
+      }
+      .r_ul1 > li{
+        background:#56396F;
+        border-bottom: 1px solid #442460;
+      }
+      .r_ul1 > li > p{
+        background: red;
+      }
+      .r_containermain{
+        height: 144px;
+        background:#F8EEFA;
+      }
+      .r_main2{
+        background: #FDFAFD;
+      }
+      .r_mainp{
+        font: normal normal bold 32px/39px Calibri;
+        letter-spacing: 0px;
+        color: #43425D;
+        opacity: 1;
+      }
+      .r_colorli{
+        font: normal normal normal 16px/19px Calibri;
+        letter-spacing: 0px;
+        color: #C6BCCF;
+        opacity: 1;
+      }
+      .r_fullimage{
+        background-image: url("img/Full\ image.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .sidebar .nav-link{
+        border-left: 6px solid #56396F;
+      }
+      .nav-icon:hover{
+        color: chartreuse !important;
+      }
+      .r_p1{
+        font: normal normal normal 20px/24px Avenir;
+        color: #4D4F5C;
+      }
+      .r_p2{  
+        font: normal normal normal 14px/16px Avenir;
+        color: #4D4F5C;
+      }
+      ::placeholder{
+        font: normal normal normal 16px/25px Avenir;
+        color: #000000 !important;
+      }
+       .r_h{
+        font: normal normal normal 40px/49px Calibri;
+        letter-spacing: 0px;
+        color: #000000;
+      }
+      .r_imagp{
+        font: normal normal normal 20px/14px Calibri;
+        letter-spacing: 0.3px;
+        color: #4A274F;
+      }
+      .r_navbar{
+        border-bottom: 1px solid #CBCBCB;
+        background-color: #fff;
+      }
+      .r_navbar > li > a{
+        color: #000 !important;
+      }
+      .r_nav_div > .active{
+        height:160px;
+        box-shadow: 0px 4px 6px #3E3D5F1A;
+      }
+      .r_button1:hover{
+        background: #442460;
+      }
+      .r_box{
+        height: 161px;
+        box-shadow: 0px 4px 6px #3E3D5F1A;
+        background: #fff ;
+      }
+      .r_tabel_head{
+        background-color: #F1DEF4;
+        font: normal normal bold 16px/19px Calibri;
+        color: #694F7F;
+      }
+      .r_tabel_row{
+        font: normal normal normal 16px/20px Calibri;
+        color: #4D4F5C;
+      }
+      .r_card_p{
+        font: normal normal normal 16px/16px Calibri;
+        color: #000000;
+      }
+      .r_h{
+        font: normal normal bold 16px/16px Calibri;
+        color: #000000;
+      }
+      .r_div_small{
+        height: 20px;
+        width: 400px;
+        margin-left: 225px;
+        margin-top: -35px;
+        background: #56DC5F;
+      }
+      .r_div_small2{
+        height: 20px;
+        margin-top: -35px;
+        margin-left:75px;
+        background: #56DC5F;
+      }
+      .r_2border_div{
+        border-top: 1px solid #3E3D5F1A;
+        border-bottom: 1px solid #3E3D5F1A;
+      }
+      .r_refresh_image{
+        background: url("img/Group587.svg");
+        background-repeat: no-repeat;
+      }
+      .r_p_complete{
+        margin-left:150px;
+      }
+      .r_chart_image{
+        background: url("img/Group\ 591.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-top: 25px;
+        margin-left: 370px;
+        margin-bottom: 20px;
+        height:200px;
+      }
+      .r_setup_button:hover{
+          background-color:#fff;
+          border:1px solid #442460;
+      }
+      .r_refresh_data{
+        font: normal normal normal 14px/14px Avenir;
+        color: #3737C8;
+      }
+      div#chart {
+         width: 100%;
+         text-align: center;
+        }
+      div#chart p {
+        text-align: center;
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        color: #bdc3c7;
+      }
+      .r_navbar .active{
+        border-bottom:3px solid #FFB900;
+        color: #000 !important;
+        font-weight: bold;
+        background-color:#fff !important;
+      }
+      .r_report_button2{
+        width: 173px;
+        height: 40px;
+        color: #000000;
+        border: 1px solid #442460;
+        border-radius: 4px;   
+      }
+      .r_report_button2:hover{
+        background-color:#fff !important;
+        color: #000 !important;
+       border: 1px solid #442460 !important;
+      }
+      .r_report_button{
+        width: 186px;
+        height: 45px;
+        background-color: #442460;
+      }
+      .r_report_button:hover{
+        background-color: #442460;
+      }
+      .r_report_mainbox2{
+        height: 409px;
+        background-color: #EFEFEF;
+      }
+      .r_report_box{
+        height: 510px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+        border-radius: 4px;
+      }
+      .r_report_video{
+        font: normal normal normal 22px/20px Calibri;
+        color: #000000;
+      }
+      .r_report_mainbox1{
+        height: 510px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+        border-radius: 4px;
+      }
+      .r_setup_5col{
+        height:528px;
+        background-color: #B4A7BF;
+      }
+      .r_setup_7col1{
+        height: 126px;
+        background-color: #fff;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+      }
+      .r_setup_7col2{
+        height: 195px;
+        background-color: #fff;
+        box-shadow: 0px 4px 6px #3E3D5F1A;
+      }
+      .r_setup_7col3{
+        height: 194px;
+        background-color: #fff;
+        box-shadow: 0px 4px 6px #3E3D5F1A;
+      }
+      .r_share_box{
+          height: 410px;
+          background-color: #fff;
+          box-shadow: 0px 2px 6px #3E3D5F1A;
+      }
+      .r_response2{
+        font: normal normal bold 20px/16px Calibri;
+        color: #000000;
+      }
+      .r_productlist_box{
+        height: 307px;
+        background-color: #fff;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+        border-radius: 4px;
+      }
+      .r_sharelink{
+        height: 185px;
+        background: #fff;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+      }
+      .r_report_demo{
+        font: normal normal normal 22px/16px Calibri;
+        color: #000000;
+      }
+      .r_modal_row1{
+        height: 36px;
+        background-color: #FAFAFA;
+      }
+      .r_div_scroll{
+        height:460px;
+        overflow-y: scroll;
+      }
+      .r_scrollbox{
+        background-color: #fff;
+        height: 225px;
+        box-shadow: 0px 2px 6px #3E3D5F1A;
+        border-radius: 4px;
+      }
+      .a_tab{
+        overflow-x: scroll;
+      }
+      @media only screen and (max-width:600px) {
+        .r_containermain{
+          height: 80px;
+        }
+        .r_mainp{
+        font: normal normal bold 15px/15px Calibri;
+        }
+        .r_navbar{
+          background-size:contain;
+        }
+      }
+      @media only screen and (min-width:1240px) {
+        .r_fullimage{
+            background-size: cover;
+        }
+      }
+      @media only screen and (max-width:1240px) {
+        .r_divmain > div{
+          width: 1200px;
+        }
+        .r_divmain{
+         overflow-x: scroll !important;
+        }
+        .a_tab > div{
+          width:1200px;
+        }
+        .a_tab{
+          overflow-x: scroll !important;
+        }
+        
+      }
+      @media only screen and (max-width:510px) {
+        .r_navbar {
+          width:100%;
+        }
+        .r_button1,.r_button2{
+          margin-bottom: 10px !important;
+          width: 100% !important;
+        }
+      }
+      @media only screen and (max-width:620px) {
+          .r_tabel{
+            width:25px;
+          }
+      }
+      @media only screen and (min-width:768px) {
+        .r_navbar > li{
+          padding-left:20px;
+        }
+        .r_navbar{
+          margin-left: 45px !important;
+          margin-right: 45px !important;
+          padding-right: 20px;
+        }
+        .a_tab{
+          overflow-x: visible !important;
+        }
+      }
+  </style>
+</head>
+<body class="hold-transition sidebar-mini">
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Share report</h5>
+        </div>
+        <div class="modal-body">
+         <div class="r_modal_row1">https://survey.aclhemer.come/s3/6419448/standard-screener</div>
+         <div class="r_modal_row1 mt-2">5C8KR4KN</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="wrapper">
+  
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="#" role="button" data-widget="navbar-search"><i class="fas fa-search"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">Search or help</a>
+        
+      </li>
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="">
+          <img src="img/support-17.svg">
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+         <img src="img/Chat Icon.svg">
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <span class=" text-muted text-sm">Nidhi bokadiya</span> 
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <img src="img/Ellipse 341.svg" height="35">
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar r_aside elevation-4">
+    <!-- Brand Logo -->
+    <header class="r_asideheader">
+      <img src="img/logo.svg" class="float-left mt-3 ml-4">
+      <p class="float-right mr-5 mt-4 r_imagp">NEURO LAB</p>
+    </header>
+    <!-- Sidebar -->
+    <div class="sidebar p-0">
+      <nav class="">
+        <ul class="nav nav-pills nav-sidebar r_ul1 flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <img src="img/house.svg">
+              <p class="r_colorli p-sm-2">
+                Home
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/chart-bar-32.svg">
+              <p class="r_colorli p-sm-2">
+                Client dashboard
+                <img src="img/down_arrow.svg" class="float-right">
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">dashboard v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">dashboard v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">dashboard v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/email-84.svg">
+              <p class="r_colorli p-sm-2">
+                Solutions
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Solutions v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Solutions v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Solutions v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/receipt-list-42.svg">
+              <p class="r_colorli p-sm-2">
+                Payment history
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Payment history v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Payment history v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Payment history v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/Support Iocn.svg">
+              <p class="r_colorli p-sm-2">
+                Resource
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Resource v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Resource v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Resource v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/$.svg">
+              <p class="r_colorli p-sm-2">
+                Pricing
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Pricing v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Pricing v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Pricing v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/single-02.svg">
+              <p class="r_colorli p-sm-2">
+                Help
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Help v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Help v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Help v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link  w-100 h-100 rounded-0 mb-0">
+              <img src="img/settings-gear-64.svg">
+              <p class="r_colorli p-sm-2">
+                Settings
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Settings v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Settings v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="r_colorli p-sm-2">Settings v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- Scrollable modal -->
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper r_main2">
+    <!-- Content Header (Page header) -->
+    
+      <div class="container-fluid  r_containermain p-4">
+        <div class="r_fullimage h-100"></div>
+      </div>
+        <div class="r_mainp  ml-5 mt-4">User Experience Mapping - Project ABC</div>
+        <div class="r_show2"></div>
+      <div class="a_tab">
+        <div class="a_tab_child">
+          <ul class="nav nav-pills  r_navbar rounded-0" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link rounded-0" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Create</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link rounded-0" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Details</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link rounded-0" id="pills-Fieldworkstatus-tab" data-toggle="pill" href="#pills-Fieldworkstatus" role="tab" aria-controls="pills-Fieldworkstatus" aria-selected="false">Set Up</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active  rounded-0" id="pills-Share-tab" data-toggle="pill" href="#pills-Designself" role="tab" aria-controls="pills-Share" aria-selected="false">Analysis</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link rounded-0" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Share</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link rounded-0" id="pills-Report-tab" data-toggle="pill" href="#pills-Report" role="tab" aria-controls="pills-Report" aria-selected="false">Report</a>
+            </li>
+          </ul>
+          <div class="tab-content r_nav_div_li  ml-5 mr-5 mt-3 id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-Designself" role="tabpanel" aria-labelledby="pills-rog-tab">
+              <div class="">
+                <form class="form-inline dropdown">
+                  <div class="form-group w-75">
+                    <select style="background-color: #FDFAFD;" class="form-control rounded-0 border-top-0 border-right-0 border-left-0 w-100" id="exampleFormControlSelect1">
+                      <option>Select websites</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <button type="submit" style="background-color:#442460;color:#fff; font: normal normal normal 18px/24px Avenir;height: 45px;width: 161px; border: none;" class="btn btn-primary ml-5 ">Go to analysis</button>
+                </form>
+                <div class="mt-3"><a class=""><u class="mt-3">Download data</u></a></div> 
+              </div>
+              <div class="accordion mt-5" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn  btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Data preparations
+                        <img src="img/down_arrow.svg" class="float-right mt-2">
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn  btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Upload meta data
+                        <img src="img/down_arrow.svg" class="float-right mt-2">
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Some placeholder content for the second accordion panel. This panel is hidden by default.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="dist/js/idstats.js"></script>
+<!-- OPTIONAL SCRIPTS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard3.js"></script>
+ 
+</body>
+</html>
